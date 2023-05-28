@@ -1,0 +1,62 @@
+{
+  "actual": [
+    {
+      "actualRelativeTime": -27,
+      "actualTime": "22:12",
+      "direction": "Borek Fałęcki",
+      "mixedTime": "0 %UNIT_MIN%",
+      "passageid": "-1188950300377882262",
+      "patternText": "8",
+      "plannedTime": "22:12",
+      "routeId": "8059228650286875431",
+      "status": "STOPPING",
+      "tripId": "8059232507167812611",
+      "vehicleId": "-1188950295904324328"
+    },
+    {
+      "actualRelativeTime": 93,
+      "actualTime": "22:14",
+      "direction": "Bronowice",
+      "mixedTime": "1 %UNIT_MIN%",
+      "passageid": "-1188950300377888389",
+      "patternText": "13",
+      "plannedTime": "22:12",
+      "routeId": "8059228650286875432",
+      "status": "PREDICTED",
+      "tripId": "8059232507169721358",
+      "vehicleId": "-1188950295904324362"
+    }
+  ],
+  "firstPassageTime": 1684698147000,
+  "lastPassageTime": 1684704600000,
+  "old": [
+    {
+      "actualRelativeTime": -267,
+      "direction": "Salwator",
+      "mixedTime": "0 %UNIT_MIN%",
+      "passageid": "-1188950300377891227",
+      "patternText": "1",
+      "plannedTime": "22:07",
+      "routeId": "8059228650286874655",
+      "status": "DEPARTED",
+      "tripId": "8059232507168181262",
+      "vehicleId": "-1188950295904330973"
+    }
+  ],
+  "routes": [
+    {
+      "alerts": [],
+      "authority": "MPK",
+      "directions": [
+        "Salwator",
+        "Wańkowicza"
+      ],
+      "id": "8059228650286874655",
+      "name": "1",
+      "routeType": "tram",
+      "shortName": "1"
+    }
+  ],
+  "stopName": "Filharmonia",
+  "stopShortName": "322"
+}

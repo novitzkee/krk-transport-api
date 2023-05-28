@@ -1,0 +1,33 @@
+{
+  "routes": [
+    {
+      "alerts": [],
+      "authority": "MPK",
+      "directions": [
+        "Salwator",
+        "Wańkowicza"
+      ],
+      "id": "8059228650286874655",
+      "name": "1",
+      "shortName": "1"
+    },
+    {
+      "alerts": [],
+      "authority": "MPK",
+      "directions": [
+        "Cmentarz Rakowicki",
+        "Salwator"
+      ],
+      "id": "8059228650286875578",
+      "name": "2",
+      "shortName": "2"
+    },
+    {
+      "alerts": [],
+      "authority": "MPK",
+      "id": "8059228650286874679",
+      "name": "3",
+      "shortName": "3"
+    }
+  ]
+}

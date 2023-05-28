@@ -1,0 +1,30 @@
+{
+  "route": {
+    "alerts": [],
+    "authority": "MPK",
+    "directions": [
+      "Salwator",
+      "Wańkowicza"
+    ],
+    "id": "8059228650286874655",
+    "name": "1",
+    "shortName": "1"
+  },
+  "stops": [
+    {
+      "id": "8059230041856278841",
+      "name": "Bieńczycka",
+      "number": "867"
+    },
+    {
+      "id": "8059230041856278820",
+      "name": "Borsucza",
+      "number": "612"
+    },
+    {
+      "id": "8059230041856278821",
+      "name": "Brożka (nż)",
+      "number": "613"
+    }
+  ]
+}
