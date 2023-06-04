@@ -37,11 +37,7 @@ abstract class TTSSClient:
     val form = Form(formFields.map(FormField.simpleField.tupled): _*)
     val request = Request.post(Body.fromURLEncodedForm(form), ServiceURL ++ URL(relativePath))
     fetch(request)
-
-  private def fetch[R](relativePath: Path)(using JsonDecoder[R]): ZIO[Client, Throwable, R] =
-    val request = Request.post(Body.empty, ServiceURL ++ URL(relativePath))
-    fetch(request)
-
+  
   private def fetch[R](request: Request)(using JsonDecoder[R]): ZIO[Client, Throwable, R] =
     for
       response <- Client.request(request)

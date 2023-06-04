@@ -11,6 +11,7 @@ import zio.{ZIO, ZLayer}
 
 import java.time.Duration
 
+// This test is a bit flaky, it won't pass if there are no passages for stop at the time (e.g. night hours).
 abstract class TTSSClientSpec extends ZIOSpecDefault:
 
   val SuiteLabel: String
@@ -39,7 +40,6 @@ abstract class TTSSClientSpec extends ZIOSpecDefault:
           assert(routeStops.stops)(!isNull && hasSize(isGreaterThan(1))) &&
           assert(stopPassages)(!isNull) &&
           assert(stopPassages.actual)(!isNull && hasSize(isGreaterThan(1)))
-
     }
   ).provideShared(ZClient.default, ZLayer.succeed(ClientInstance))
 
