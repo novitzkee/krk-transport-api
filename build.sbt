@@ -15,5 +15,10 @@ lazy val root = (project in file("."))
       "dev.zio" %% "zio-json" % "0.5.0",
       "dev.zio" %% "zio-http" % "3.0.0-RC1",
       "dev.zio" %% "zio-test" % "2.0.13" % Test,
+
+      "io.getquill" %% "quill-jdbc-zio" % "4.6.0.1",
+      "org.xerial" % "sqlite-jdbc" % "3.40.1.0",
+
+      "com.github.tototoshi" %% "scala-csv" % "1.3.10",
     )
   )
