@@ -1,8 +1,10 @@
 package com.github.novitzkee
 package service.ttss.client
+import zio.URLayer
+import zio.http.Client
 
-object BusTTSSClientSpec extends TTSSClientSpec:
+object BusTTSSClientSpec extends TTSSClientSpec[BusTTSSClient]:
 
-  override val SuiteLabel: String = "Bus web service client spec"
+  override val suiteLabel: String = "Bus web service client spec"
 
-  override val ClientInstance: TTSSClient = BusTTSSClient()
+  override val testedClientLayer: URLayer[Client, BusTTSSClient] = BusTTSSClient.live

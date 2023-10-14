@@ -1,7 +1,7 @@
 package com.github.novitzkee
 package service.ttss.response
 
-import service.ttss.response.ResponseData.{RoutesDecoded, RoutesJSON}
+import service.ttss.response.ResponseData.{routesDecoded, routesJSON}
 import service.ttss.response.{ResponseData, RouteInfo, RouteInfoList}
 
 import zio.json.JsonDecoder
@@ -15,13 +15,13 @@ object ResponseDecodingSpec extends ZIOSpecDefault:
 
   def spec: Spec[Any, Nothing] = suite("Response JSON decoding test suite")(
     test("Should decode route info json") {
-      assertDecoded(ResponseData.RoutesJSON, ResponseData.RoutesDecoded)
+      assertDecoded(ResponseData.routesJSON, ResponseData.routesDecoded)
     },
     test("Should decode route stops json") {
-      assertDecoded(ResponseData.RouteStopsJSON, ResponseData.RouteStopsDecoded)
+      assertDecoded(ResponseData.routeStopsJSON, ResponseData.routeStopsDecoded)
     },
     test("Should decode stop passages json") {
-      assertDecoded(ResponseData.StopPassagesJSON, ResponseData.StopPassagesDecoded)
+      assertDecoded(ResponseData.stopPassagesJSON, ResponseData.stopPassagesDecoded)
     }
   )
 

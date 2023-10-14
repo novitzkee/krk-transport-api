@@ -1,10 +1,10 @@
 package com.github.novitzkee
 package service.ttss.exception
 
-import zio.http.Status
+import zio.http.{Response, Status}
 
 case class HttpResponseException(message: String) extends Exception(message)
 
 object HttpResponseException:
-  def invalidStatus(expectedStatus: Status, actualStatus: Status): HttpResponseException =
-    HttpResponseException(s"Expected status: ${expectedStatus.code}, but it was: ${actualStatus.code} - $actualStatus")
+  def invalidStatus(response: Response): HttpResponseException =
+    HttpResponseException(s"Invalid http status received: ${response.status} in response: $response")

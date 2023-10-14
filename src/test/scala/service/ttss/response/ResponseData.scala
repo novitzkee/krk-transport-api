@@ -5,11 +5,11 @@ import java.time.{Duration, Instant, LocalTime}
 
 object ResponseData:
 
-  private val JsonDirectory = "json"
+  private val jsonDirectory = "json"
 
-  val RoutesJSON: String = s"$JsonDirectory/routes.json"
+  val routesJSON: String = s"$jsonDirectory/routes.json"
 
-  val RoutesDecoded: RouteInfoList =
+  val routesDecoded: RouteInfoList =
     RouteInfoList(
       routes = List(
         RouteInfo(
@@ -33,9 +33,9 @@ object ResponseData:
       )
     )
 
-  val RouteStopsJSON: String = s"$JsonDirectory/routeStops.json"
+  val routeStopsJSON: String = s"$jsonDirectory/routeStops.json"
 
-  val RouteStopsDecoded: RouteStops =
+  val routeStopsDecoded: RouteStops =
     RouteStops(
       route = RouteInfo(
         authority = "MPK",
@@ -62,9 +62,9 @@ object ResponseData:
       )
     )
 
-  val StopPassagesJSON: String = s"$JsonDirectory/stopPassages.json"
+  val stopPassagesJSON: String = s"$jsonDirectory/stopPassages.json"
 
-  val StopPassagesDecoded: StopPassages =
+  val stopPassagesDecoded: StopPassages =
     StopPassages(
       actual = List(
         PassageInfo(

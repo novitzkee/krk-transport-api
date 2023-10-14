@@ -4,24 +4,24 @@ package service.ttss.client
 import service.ttss.request.TimeRange
 import service.ttss.response.RouteInfoList
 
-import zio.http.ZClient
+import zio.http.{Client, ZClient}
 import zio.test.Assertion.{hasSize, isGreaterThan, isNull}
 import zio.test.{Spec, TestAspect, ZIOSpecDefault, assert}
-import zio.{ZIO, ZLayer}
+import zio.{URLayer, ZIO, ZLayer}
 
 import java.time.Duration
 
 // This test is a bit flaky, it won't pass if there are no passages for stop at the time (e.g. night hours).
-abstract class TTSSClientSpec extends ZIOSpecDefault:
+abstract class TTSSClientSpec[TestedClient <: TTSSClient] extends ZIOSpecDefault:
 
-  val SuiteLabel: String
+  val suiteLabel: String
 
-  val ClientInstance: TTSSClient
+  val testedClientLayer: URLayer[Client, TestedClient]
 
   // This test should be broken down into separate test for each api endpoint but state would be needed from previous test.
   // It would require tests to run sequentially, and to data to be passed between them - not sure how to do this.
 
-  def spec: Spec[Any, Throwable] = suite(SuiteLabel)(
+  def spec: Spec[Any, Throwable] = suite(suiteLabel)(
     test("Should fetch data from service") {
       for
         client <- ZIO.service[TTSSClient]
@@ -41,5 +41,5 @@ abstract class TTSSClientSpec extends ZIOSpecDefault:
           assert(stopPassages)(!isNull) &&
           assert(stopPassages.actual)(!isNull && hasSize(isGreaterThan(1)))
     }
-  ).provideShared(ZClient.default, ZLayer.succeed(ClientInstance))
+  ).provideShared(ZClient.default, testedClientLayer)
 
