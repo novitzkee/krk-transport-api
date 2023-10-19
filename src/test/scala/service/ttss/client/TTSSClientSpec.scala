@@ -26,13 +26,13 @@ abstract class TTSSClientSpec[TestedClient <: TTSSClient] extends ZIOSpecDefault
       for
         client <- ZIO.service[TTSSClient]
         routeInfo <- client.fetchRoutes()
-        _ <- ZIO.logInfo(routeInfo.toString)
+        _ <- ZIO.logDebug(routeInfo.toString)
         routeStops <- client.fetchRouteStops(routeInfo.routes.head.id)
-        _ <- ZIO.logInfo(routeStops.toString)
+        _ <- ZIO.logDebug(routeStops.toString)
         stopPassages <- client.fetchStopPassages(
           routeStops.stops.head.number,
           TimeRange.relativeToNow(Duration.ofMinutes(10), Duration.ofHours(1)))
-        _ <- ZIO.logInfo(stopPassages.toString)
+        _ <- ZIO.logDebug(stopPassages.toString)
       yield
         assert(routeInfo)(!isNull) &&
           assert(routeInfo.routes)(!isNull && hasSize(isGreaterThan(1))) &&

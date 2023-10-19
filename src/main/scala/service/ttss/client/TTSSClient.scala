@@ -10,15 +10,15 @@ import zio.http.*
 import zio.json.JsonDecoder
 import zio.{Task, ZIO}
 
-abstract class TTSSClient(private val client: Client):
+class TTSSClient(private val serviceHost: String, private val client: Client):
 
-  protected lazy val serviceURL: URL
+  private val servicePath = !! / "internetservice" / "services"
 
   private val routeInfoPath = ~~ / "routeInfo"
 
   private val passageInfoPath = ~~ / "passageInfo"
 
-  def fetchRoutes(): ZIO[Client, Throwable, RouteInfoList] =
+  def fetchRoutes(): Task[RouteInfoList] =
     fetch(routeInfoPath / "route")
 
   def fetchRouteStops(routeId: String): Task[RouteStops] =
@@ -35,7 +35,8 @@ abstract class TTSSClient(private val client: Client):
 
   private def fetch[R](relativePath: Path, formFields: (String, String)*)(using JsonDecoder[R]): Task[R] =
     val form = Form(formFields.map(FormField.simpleField.tupled): _*)
-    val request = Request.post(Body.fromURLEncodedForm(form), serviceURL ++ URL(relativePath))
+    val url = URL(servicePath ++ relativePath).absolute(serviceHost)
+    val request = Request.post(Body.fromURLEncodedForm(form), url)
     fetch(request)
 
   private def fetch[R](request: Request)(using JsonDecoder[R]): Task[R] =

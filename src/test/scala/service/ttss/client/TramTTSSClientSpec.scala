@@ -1,9 +1,12 @@
 package com.github.novitzkee
 package service.ttss.client
+import org.junit.runner.RunWith
 import zio.URLayer
 import zio.http.Client
+import zio.test.junit.ZTestJUnitRunner
 
-object TramTTSSClientSpec extends TTSSClientSpec[TramTTSSClient]:
+@RunWith(classOf[ZTestJUnitRunner])
+class TramTTSSClientSpec extends TTSSClientSpec[TramTTSSClient]:
 
   override val suiteLabel: String = "Tram web service client spec"
 

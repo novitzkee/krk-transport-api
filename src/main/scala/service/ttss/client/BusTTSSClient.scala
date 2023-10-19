@@ -4,12 +4,10 @@ package service.ttss.client
 import zio.{URLayer, ZLayer}
 import zio.http.{!!, Client, Path, URL}
 
-case class BusTTSSClient(client: Client) extends TTSSClient(client):
-
-  override protected lazy val serviceURL: URL =
-    URL(!! / "internetservice" / "services")
-      .absolute("ttss.mpk.krakow.pl")
+case class BusTTSSClient(client: Client) extends TTSSClient(BusTTSSClient.host, client)
 
 object BusTTSSClient:
+
+  private val host = "ttss.mpk.krakow.pl"
 
   val live: URLayer[Client, BusTTSSClient] = ZLayer.derive[BusTTSSClient]

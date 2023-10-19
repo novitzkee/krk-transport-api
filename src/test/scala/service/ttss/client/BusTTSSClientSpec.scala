@@ -1,9 +1,12 @@
 package com.github.novitzkee
 package service.ttss.client
+import org.junit.runner.RunWith
 import zio.URLayer
 import zio.http.Client
+import zio.test.junit.ZTestJUnitRunner
 
-object BusTTSSClientSpec extends TTSSClientSpec[BusTTSSClient]:
+@RunWith(classOf[ZTestJUnitRunner])
+class BusTTSSClientSpec extends TTSSClientSpec[BusTTSSClient]:
 
   override val suiteLabel: String = "Bus web service client spec"
 
