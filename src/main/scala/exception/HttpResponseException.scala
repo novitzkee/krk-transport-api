@@ -1,5 +1,5 @@
 package com.github.novitzkee
-package service.ttss.exception
+package exception
 
 import zio.http.{Response, Status}
 

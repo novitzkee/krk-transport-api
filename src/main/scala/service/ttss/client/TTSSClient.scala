@@ -1,10 +1,10 @@
 package com.github.novitzkee
 package service.ttss.client
 
-import service.ttss.exception.HttpResponseException
 import service.ttss.request.TimeRange
 import service.ttss.response.{RouteInfoList, RouteStops, StopPassages}
 import utils.{filterOrFailWith, jsonDecode}
+import com.github.novitzkee.exception.HttpResponseException
 
 import zio.http.*
 import zio.json.JsonDecoder
